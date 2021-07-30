@@ -1,0 +1,4 @@
+{
+    "mongoURL": "mongodb+srv://deepak27:@Node_2710@cluster0.mztdq.mongodb.net/safar?retryWrites=true&w=majority",
+    "My_Secret_Key": "Bang_it"
+}
