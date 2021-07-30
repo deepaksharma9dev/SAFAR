@@ -1,4 +1,3 @@
-require('dotenv').config();
 const cors = require('cors');
 const path = require('path');
 const express = require('express');
@@ -39,7 +38,7 @@ app.use((err, req, res, next) => {
     return res.status(err.status).json({ errors: err.errors });
 });
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT}`);
