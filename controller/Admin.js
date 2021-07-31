@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const Jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
@@ -6,12 +7,14 @@ const User = require('../models/User');
 const agency = require('../models/Agency');
 const staff = require('../models/Staff');
 const bus = require('../models/Bus');
-const config = require('config');
+// const config = require('config');
 
-let mySecret;
-if (config.has('My_Secret_Key')) {
-    mySecret = config.get('My_Secret_Key');
-}
+let mySecret = process.env.JWT_SECRET;
+
+
+// if (config.has('My_Secret_Key')) {
+//     mySecret = config.get('My_Secret_Key');
+// }
 
 
 //function for validating the user's input

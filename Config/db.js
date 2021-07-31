@@ -1,10 +1,12 @@
-const config = require('config');
+// const config = require('config');
+require('dotenv').config();
 const mongoose = require('mongoose');
-let db;
-if (config.has('mongoURL')) {
-    db = config.get('mongoURL');
+let db = process.env.MONGO_URL;
+// if (config.has('mongoURL')) {
+//     db = config.get('mongoURL');
 
-}
+// }
+// console.log(typeof(db), "type");
 // console.log(db);
 module.exports.connect_db = async() => {
     try {

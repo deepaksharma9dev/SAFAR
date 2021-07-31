@@ -1,14 +1,15 @@
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const Jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const Ticket = require('../models/Ticket');
 const ObjectId = require('mongoose').Types.ObjectId;
-const config = require('config');
+// const config = require('config');
 let mySecret;
-if (config.has('My_Secret_Key')) {
-    mySecret = config.get('My_Secret_Key');
-}
+// if (config.has('My_Secret_Key')) {
+//     mySecret = config.get('My_Secret_Key');
+// }
 // const mySecret = config.get('My_Secret_Key');
 
 
