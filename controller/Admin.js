@@ -7,7 +7,12 @@ const agency = require('../models/Agency');
 const staff = require('../models/Staff');
 const bus = require('../models/Bus');
 const config = require('config');
-const mySecret = config.get('My_Secret_Key');
+
+let mySecret;
+if (config.has('My_Secret_Key')) {
+    mySecret = config.get('My_Secret_Key');
+}
+
 
 //function for validating the user's input
 

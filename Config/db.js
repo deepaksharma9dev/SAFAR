@@ -1,7 +1,7 @@
 const config = require('config');
 const mongoose = require('mongoose');
 let db;
-if (config.has("mongoURL")) {
+if (config.has('mongoURL')) {
     db = config.get('mongoURL');
 
 }
