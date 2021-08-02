@@ -10,19 +10,19 @@ const UserProfile = ({user,getTickets}) => {
     return (
         <Fragment>
             <div className="row mt-2 ml-2">
-                    <Link to="/searchbus" type="button" class="btn btn-outline-info">Search bus</Link>
+                    <Link to="/searchbus" type="button" className="btn btn-outline-info">Search bus</Link>
                 </div>
             <div className="container text-center">
                 <div className="d-flex justify-content-center greeting-icon_sec">
-                    <i class="far fa-handshake"></i>
+                    <i className="far fa-handshake"></i>
                 </div>
                 <div className="welcome_msg_sec text-center">
                         <h2>
-                            <span><i class="fas fa-smile-beam"></i>
+                            <span><i className="fas fa-smile-beam"></i>
                             </span>Hey 
                         </h2>
                 </div>
-                <Link type="button" class="btn btn-outline-info mt-2" to="/my-tickets">My Bookings</Link>
+                <Link type="button" className="btn btn-outline-info mt-2" to="/my-tickets">My Bookings</Link>
             </div>
         </Fragment>
     )

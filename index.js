@@ -4,6 +4,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const db = require('./Config/db');
+
 //routes
 const Admin = require('./routers/Admin');
 const User = require('./routers/User');
@@ -50,4 +51,4 @@ app.listen(PORT, () => {
 });
 
 
-module.exports = app;
+// module.exports = app;
