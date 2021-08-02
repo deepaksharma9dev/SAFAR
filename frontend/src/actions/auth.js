@@ -152,12 +152,12 @@ export const login = ({ email, password }) => async dispatch => {
 
     } catch (err) {
         // console.log(res)
-        console.log(err);
+        console.log(err, "err");
 
         if (err) {
 
             const errors = err.response.data.errors;
-            if (errors[0].hasOwnProperty('msg')) {
+            if (errors.length) {
                 {
                     errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
                 }
