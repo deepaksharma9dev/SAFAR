@@ -3,7 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const express = require('express');
 const app = express();
-const db = require('./Config/db');
+const db = require('./config/db');
 
 //routes
 const Admin = require('./routers/Admin');
@@ -28,7 +28,7 @@ app.use('/api/user/auth', auth);
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname.anchor, 'frontend', 'build', 'index.html'));
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
     });
 }
 
