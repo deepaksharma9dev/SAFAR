@@ -36,7 +36,12 @@ if (process.env.NODE_ENV === 'production') {
 app.use((err, req, res, next) => {
     console.log(err);
     console.log("err handler is working");
-    return res.status(err.status).json({ errors: err.errors });
+    if (err.hasOwnProperty("status")) {
+        return res.status(err.status).json({ errors: err.errors });
+    } else {
+        return err;
+    }
+
 });
 
 const PORT = process.env.PORT || 7000;
