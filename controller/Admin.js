@@ -12,11 +12,6 @@ const bus = require('../models/Bus');
 let mySecret = process.env.JWT_SECRET;
 
 
-// if (config.has('My_Secret_Key')) {
-//     mySecret = config.get('My_Secret_Key');
-// }
-
-
 //function for validating the user's input
 
 

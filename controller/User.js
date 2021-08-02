@@ -5,12 +5,7 @@ const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const Ticket = require('../models/Ticket');
 const ObjectId = require('mongoose').Types.ObjectId;
-// const config = require('config');
-let mySecret;
-// if (config.has('My_Secret_Key')) {
-//     mySecret = config.get('My_Secret_Key');
-// }
-// const mySecret = config.get('My_Secret_Key');
+
 
 
 
@@ -50,14 +45,14 @@ const checkPassword = async(Entered_Password, bcrypted) => {
 
 //for making a token
 
-const authorization = function(payload, secret = mySecret) {
+const authorization = function(payload, secret = process.env.JWT_SECRET) {
     const token = Jwt.sign(payload, secret);
     return token;
 };
 
 //for verifiying the user's token
 
-const authentication = function(token, secret = mySecret) {
+const authentication = function(token, secret = process.env.JWT_SECRET) {
     const decoded = Jwt.verify(token, secret);
     return decoded;
 };
