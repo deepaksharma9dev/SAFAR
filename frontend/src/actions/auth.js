@@ -25,7 +25,7 @@ export const loadUser = () => async dispatch => {
     }
 
     try {
-        const res = await axios.get('/user/auth/authuser');
+        const res = await axios.get('/api/users/user/auth/authuser');
         // console.log(res);
 
         await dispatch({
@@ -147,7 +147,7 @@ export const login = ({ email, password }) => async dispatch => {
             type: LOGIN_SUCCESS,
             payload: res.data
         });
-        
+
         dispatch(loadUser());
 
     } catch (err) {

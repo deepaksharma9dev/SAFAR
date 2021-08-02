@@ -3,12 +3,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 let db = process.env.MONGO_URL;
 console.log(db);
-// if (config.has('mongoURL')) {
-//     db = config.get('mongoURL');
 
-// }
-// console.log(typeof(db), "type");
-// console.log(db);
 module.exports.connect_db = async() => {
     try {
         await mongoose.connect(db, {
