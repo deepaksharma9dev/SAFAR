@@ -70,8 +70,8 @@ export const register = ({ name, email, password, confirm_password }) => async d
 
         if (err) {
             const errors = err.response.data.errors;
-            console.log(errors)
-            if (errors[0].hasOwnProperty('msg')) {
+            console.log(errors, "errors");
+            if (errors.length) {
                 {
                     errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
                 }
