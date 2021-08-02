@@ -2,7 +2,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 let db = process.env.MONGO_URL;
-console.log(db);
+console.log(db, "e");
 
 module.exports.connect_db = async() => {
     try {
