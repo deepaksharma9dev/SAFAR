@@ -21,7 +21,7 @@ export const isBooked = ({ id }) => async dispatch => {
     };
 
     try {
-        const res = await axios.get(`/user/auth/isBooked/${id}`, config);
+        const res = await axios.get(`/api/user/auth/isBooked/${id}`, config);
         dispatch({
             type: IS_BOOKED,
             payload: res.data
@@ -69,7 +69,7 @@ export const book_Tickets = ({
 
     try {
 
-        const res = await axios.post(`/users/user/buses/${id}/bookticket`, body, config);
+        const res = await axios.post(`/api/users/user/buses/${id}/bookticket`, body, config);
         dispatch({
             type: BOOK_TICKETS,
             payload: res.data
@@ -100,7 +100,7 @@ export const getTickets = () => async dispatch => {
     // dispatch(loadUser());
 
     try {
-        const res = await axios.get('/users/user/tickets', config);
+        const res = await axios.get('/api/users/user/tickets', config);
 
         dispatch({
             type: TICKETS,
@@ -126,7 +126,7 @@ export const cancelTicket = (
 
 
     try {
-        const res = await axios.delete(`/users/user/tickets/ticket/${ticketId}`, config);
+        const res = await axios.delete(`/api/users/user/tickets/ticket/${ticketId}`, config);
 
         dispatch({
             type: CANCEL_TICKET,
