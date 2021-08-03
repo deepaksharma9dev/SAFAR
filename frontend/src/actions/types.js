@@ -10,6 +10,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const ADMIN_LOGIN_SUCCESS = 'ADMIN_LOGIN_SUCCESS';
 export const ADMIN_LOGIN_FAIL = 'ADMIN_LOGIN_FAIL';
+export const LOGOUT = 'LOGOUT';
 export const BUS_FOUND = 'BUS_FOUND';
 export const BUS_NOTFOUND = 'BUS_NOTFOUND';
 export const FOUND_BUS_SEATS = 'FOUND_BUS_SEATS';

@@ -2,7 +2,7 @@ import React, {Fragment,useState} from 'react';
 import { Link ,Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {adminlogin} from '../../actions/auth';
-import { getAdminDetails } from '../../actions/bus';
+// import { getAdminDetails } from '../../actions/bus';
 import propTypes from  'prop-types';
 
 const AdminLogin = ({adminlogin,isAuthenticated}) => {

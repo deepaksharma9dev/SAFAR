@@ -31,8 +31,9 @@ if(localStorage.token){
 
 function App() {
   useEffect(()=>{
-    // store.dispatch(getAdminDetails())
+    
    store.dispatch(loadUser())
+   store.dispatch(getAdminDetails())
    
     },[]);
 

@@ -8,7 +8,8 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     ADMIN_LOGIN_SUCCESS,
-    ADMIN_LOGIN_FAIL
+    ADMIN_LOGIN_FAIL,
+    LOGOUT
 } from '../actions/types';
 
 
@@ -22,7 +23,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
     const { type, payload } = action;
-console.log(type, payload)
+
     switch (type) {
         case USER_LOADED:
             return {
@@ -47,6 +48,7 @@ console.log(type, payload)
         case AUTH_ERROR:
         case LOGIN_FAIL:
         case ADMIN_LOGIN_FAIL:
+        case LOGOUT:
             localStorage.removeItem('token');
             return {
                 ...state,

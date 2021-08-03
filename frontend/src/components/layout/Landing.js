@@ -1,9 +1,18 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 import Bus1 from '../../assets/img/bus1.png';
 import Bus2 from '../../assets/img/bus2.png';
 import Bus3 from '../../assets/img/bus3.png';
-const Landing = () => {
+import propTypes from  'prop-types';
+
+const Landing = ({auth:{isAuthenticated}}) => {
+    // console.log(isAuthenticated)    
+    if(isAuthenticated){
+
+       return <Redirect to="/user-profile"/>
+    }
+
     return (
     <Fragment>
         <div className="Landing_sec col-12 text-center w-100">
@@ -51,4 +60,13 @@ const Landing = () => {
     )
 }
 
-export default Landing;
+Landing.propTypes = {
+    auth: propTypes.object
+}
+
+const mapStateToProps = (state) => ({
+    auth: state.auth
+})
+
+// export default Landing;
+export default connect(mapStateToProps)(Landing);

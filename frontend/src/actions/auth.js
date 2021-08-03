@@ -10,7 +10,8 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     ADMIN_LOGIN_SUCCESS,
-    ADMIN_LOGIN_FAIL
+    ADMIN_LOGIN_FAIL,
+    LOGOUT
 } from './types';
 
 import { getAdminDetails } from './admin';
@@ -221,4 +222,11 @@ export const adminlogin = ({
             type: ADMIN_LOGIN_FAIL
         });
     }
+};
+
+
+export const logOut = () => async dispatch => {
+    dispatch({
+        type: LOGOUT
+    });
 };

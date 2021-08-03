@@ -2,8 +2,7 @@ import React, {Fragment,useState} from 'react'
 import propTypes from 'prop-types'
 import { add_Location } from '../../actions/admin';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom'
-// import {setAlert} from '../../actions/alert';
+
 
 const AddLocation = ({add_Location}) => {
     const [formData,setFormData] = useState({

@@ -1,6 +1,19 @@
 import React,{ Fragment } from 'react';
-import {Link} from  'react-router-dom';
-const Navbar = () => {
+import {Link,useHistory} from  'react-router-dom';
+import { connect } from 'react-redux';
+import {logOut} from '../../actions/auth';
+
+
+const Navbar = ({isAuthenticated,logOut}) => {
+    let history = useHistory()
+
+    const logout = function(){
+        logOut()
+        history.push('/')
+        window.location.reload(false)        
+    }
+   
+
     return (
         <Fragment>
             <nav className="navbar navbar-expand-sm navbar-light border-bottom header_sec">
@@ -17,9 +30,32 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
+            {
+            (isAuthenticated)? 
+            <Fragment>
+                    <button className="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm">Logout</button>
+                        <div className="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div className="modal-dialog modal-sm">
+                            <div className="modal-content">
+                            <div className="modal-header"><h4>Logout <i className="fa fa-lock"></i></h4></div>
+                            <div className="modal-body"><i className="fa fa-question-circle"></i> Are you sure you want to log-off?</div>
+                            <div className="modal-footer">
+                                <button className="btn btn-danger btn-block" onClick={()=>logout()}>Logout</button>
+                                <button className="btn btn-success btn-block mt-0" onClick={()=>window.location.reload(false)}>No</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+            </Fragment>: <Fragment>
+            </Fragment>
+            }
             </nav>
         </Fragment> 
     )
 }
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps,{logOut})(Navbar);

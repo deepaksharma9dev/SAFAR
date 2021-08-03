@@ -1,5 +1,5 @@
 import React, {Fragment,useState} from 'react';
-import { Link ,Redirect,useHistory} from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {getBuses} from '../../actions/bus';
 import {setAlert} from '../../actions/alert';

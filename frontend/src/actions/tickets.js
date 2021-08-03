@@ -10,7 +10,7 @@ import {
 } from './types';
 
 import { setAlert } from './alert';
-import { loadUser } from './auth';
+// import { loadUser } from './auth';
 
 
 export const isBooked = ({ id }) => async dispatch => {

@@ -22,8 +22,6 @@ export const getAdminDetails = () => async dispatch => {
     };
     try {
         const res = await axios.get('/api/admins/admin/dashboard', config);
-        console.log(res.data, "data");
-
         dispatch({
             type: ADMIN_DETAILS,
             payload: res.data
