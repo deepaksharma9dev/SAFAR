@@ -21,7 +21,7 @@ export const getAdminDetails = () => async dispatch => {
         }
     };
     try {
-        const res = await axios.get('/admins/admin/dashboard', config);
+        const res = await axios.get('/api/admins/admin/dashboard', config);
         console.log(res.data, "data");
 
         dispatch({
@@ -50,7 +50,7 @@ export const add_Location = ({ city, state }) => async dispatch => {
     const body = JSON.stringify({ city, state });
 
     try {
-        const res = await axios.post('/admins/admin/location', body, config);
+        const res = await axios.post('/api/admins/admin/location', body, config);
         dispatch({
             type: ADD_LOCATION,
             payload: res.data
@@ -80,7 +80,7 @@ export const add_Agency = ({
     const body = JSON.stringify({ phone, agencyName, headOfficeLocation });
 
     try {
-        const res = await axios.post('/admins/admin/agency', body, config);
+        const res = await axios.post('/api/admins/admin/agency', body, config);
         dispatch({
             type: ADD_AGENCY,
             payload: res.data
@@ -114,7 +114,7 @@ export const add_Staff = ({
     const body = JSON.stringify({ name, phone, address, isDriver, agencyName });
 
     try {
-        const res = await axios.post('/admins/admin/staff', body, config);
+        const res = await axios.post('/api/admins/admin/staff', body, config);
         dispatch({
             type: ADD_STAFF,
             payload: res.data
@@ -177,7 +177,7 @@ export const addBus = ({
 
     console.log(body);
     try {
-        const res = await axios.post('/admins/admin/addbus', body, config);
+        const res = await axios.post('/api/admins/admin/addbus', body, config);
 
         dispatch({
             type: ADD_BUS,

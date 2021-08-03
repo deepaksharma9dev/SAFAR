@@ -57,7 +57,7 @@ export const register = ({ name, email, password, confirm_password }) => async d
     const body = JSON.stringify({ name, email, password, confirm_password });
 
     try {
-        const res = await axios.post('/users/user/signup', body, config);
+        const res = await axios.post('/api/users/user/signup', body, config);
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
@@ -100,7 +100,7 @@ export const adminregister = ({ admin_email, name, email, password, confirm_pass
     const body = JSON.stringify({ admin_email, name, email, password, confirm_password });
 
     try {
-        const res = await axios.post('/admins/admin/signup', body, config);
+        const res = await axios.post('/api/admins/admin/signup', body, config);
         // console.log("worked")
         // console.log(res);
         dispatch({
@@ -187,7 +187,7 @@ export const adminlogin = ({
     const body = JSON.stringify({ email, password });
 
     try {
-        const res = await axios.post('/admins/admin/login', body, config);
+        const res = await axios.post('/api/admins/admin/login', body, config);
         // console.log(res, "res");
 
         dispatch({

@@ -18,7 +18,7 @@ export const getBuses = ({ to, from, date }) => async dispatch => {
         }
     };
     try {
-        const res = await axios.get('/buses/GetBuses', { params: { to, from, date } }, config);
+        const res = await axios.get('/api/buses/GetBuses', { params: { to, from, date } }, config);
         // console.log(res.data, "data");
         dispatch({
             type: BUS_FOUND,
@@ -40,7 +40,7 @@ export const getBus = ({ id }) => async dispatch => {
         }
     };
     try {
-        const res = await axios.get('/buses/bus/', { params: { busId: id } }, config);
+        const res = await axios.get('/api/buses/bus/', { params: { busId: id } }, config);
         dispatch({
             type: FOUND_BUS_SEATS,
             payload: res.data
