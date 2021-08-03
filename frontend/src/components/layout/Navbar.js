@@ -41,7 +41,6 @@ const Navbar = ({isAuthenticated,logOut}) => {
                             <div className="modal-body"><i className="fa fa-question-circle"></i> Are you sure you want to log-off?</div>
                             <div className="modal-footer">
                                 <button className="btn btn-danger btn-block" onClick={()=>logout()}>Logout</button>
-                                <button className="btn btn-success btn-block mt-0" onClick={()=>window.location.reload(false)}>No</button>
                             </div>
                             </div>
                         </div>
