@@ -1,10 +1,14 @@
-import React, {Fragment,useState} from 'react'
+import React, {Fragment,useState,useEffect} from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
+import {getAdminDetails} from '../../actions/admin';
 
+const AdminDashboard = ({dashboard: {details, loading},user,getAdminDetails }) => {
 
-const AdminDashboard = ({dashboard: {details, loading},user }) => {
+    useEffect(()=>{
+        getAdminDetails()
+    },[getAdminDetails])
 
     const [busMoreDetails,setBusMoreDetails] = useState(false)
     const [staffsMoreDetails,setStaffMoreDetails] = useState(false)
@@ -253,10 +257,11 @@ const AdminDashboard = ({dashboard: {details, loading},user }) => {
 AdminDashboard.propTypes = {
     dashboard : propTypes.object,
     user: propTypes.object,
+    getAdminDetails:propTypes.func,
 }
 
 const mapStateToProps = (state) => ({
     dashboard : state.admin,
     user: state.auth.user
 })
-export default connect(mapStateToProps)(AdminDashboard)
+export default connect(mapStateToProps,{getAdminDetails})(AdminDashboard)

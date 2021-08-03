@@ -2,10 +2,10 @@ import React, {Fragment,useState} from 'react';
 import { Link ,Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {adminlogin} from '../../actions/auth';
-// import { getAdminDetails } from '../../actions/bus';
+import { getAdminDetails } from '../../actions/bus';
 import propTypes from  'prop-types';
 
-const AdminLogin = ({adminlogin,isAuthenticated}) => {
+const AdminLogin = ({adminlogin,isAuthenticated,loading}) => {
 
             const [formData,setFormData] = useState({
                 email: '',
@@ -21,8 +21,8 @@ const AdminLogin = ({adminlogin,isAuthenticated}) => {
           
         }
 
-        if(isAuthenticated){
-        return <Redirect to="/admin-dashboard"/>
+        if(isAuthenticated && !loading){
+            return <Redirect to="/admin-dashboard"/>
         }
     return (
         <Fragment>
@@ -52,12 +52,13 @@ const AdminLogin = ({adminlogin,isAuthenticated}) => {
 
 AdminLogin.propTypes = {
     adminlogin: propTypes.func.isRequired,
-    isAuthenticated: propTypes.bool.isRequired
+    isAuthenticated: propTypes.bool.isRequired,
+    loading:propTypes.bool.isRequired
 }
 
 const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
-    
+    loading: state.admin.loading
 })
 
 export  default connect(mapStateToProps,{adminlogin})(AdminLogin);

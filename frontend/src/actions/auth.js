@@ -191,17 +191,13 @@ export const adminlogin = ({
         const res = await axios.post('/api/admins/admin/login', body, config);
         // console.log(res, "res");
 
-        dispatch({
+        await dispatch({
             type: ADMIN_LOGIN_SUCCESS,
             payload: res.data
         });
-
         await dispatch(loadUser());
 
         dispatch(getAdminDetails());
-
-
-
 
     } catch (err) {
         // console.log(res)

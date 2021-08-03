@@ -33,7 +33,7 @@ function App() {
   useEffect(()=>{
     
    store.dispatch(loadUser())
-   store.dispatch(getAdminDetails())
+  //  store.dispatch(getAdminDetails())
    
     },[]);
 
